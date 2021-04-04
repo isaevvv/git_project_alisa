@@ -6,14 +6,9 @@ def put_item(req, res):
     else:
         items.append(item)
         res['response']['text'] = f"Добавили {item}"
-#исходник
+
 
 def check_item(req, res):
-    item = req['request']['nlu']['intents']['check_item']['slots']['what']['value']
-    items = res['session_state']['items']
-    res['response']['text'] = f"{item} {'не' if item not in set(items) else ''}в списке"
-
-def check_item2(req, res):
     item = req['request']['nlu']['intents']['check_item']['slots']['what']['value']
     items = res['session_state']['items']
     res['response']['text'] = f"{item} {'не' if item not in set(items) else ''}в списке"
